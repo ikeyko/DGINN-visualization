@@ -48,17 +48,16 @@ server <- function(input, output) {
     }
     
     # stop app if over 100 genes in the results file
-    if(nrow(df) > 100) {
-      showModal(
-        modalDialog(
-          title = "Too many genes in your data file",
-          "Your data file contains more than 100 genes. Please run the app locally (refer to the Github documentation for explanations).",
-          footer = modalButton("OK"),
-          size = "s"
-        )
-      )
-      return()
-    }
+    # if(nrow(df) > 100) {
+    #   showModal(
+    #     modalDialog(
+    #       title = "Too many genes in your data file",
+    #       "Your data file contains more than 100 genes. Please run the app locally (refer to the Github documentation for explanations).",
+    #       footer = modalButton("OK"),
+    #       size = "s"
+    #     )
+    #   )
+    # }
     
     ################################### VISUALIZE DATA
     
