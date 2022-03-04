@@ -22,7 +22,7 @@ server <- function(input, output) {
   
   # get data when user submits
   observeEvent(input$submit,{
-    print("covfile try")
+    
     covFile <- input$covFile
     if(!is.null(input$covFile)) {
       cov  <- read.table(covFile$datapath, header = F, fill = T, sep = "\t")
@@ -33,7 +33,7 @@ server <- function(input, output) {
     
     resFile <- input$resFile 
     df  <- read.table(resFile$datapath, header = T, sep = "\t")
-    print("resfile readed")
+    
     # stop app if no results file uploaded
     if(is.null(resFile)) {
       showModal(
@@ -62,10 +62,18 @@ server <- function(input, output) {
     ################################### VISUALIZE DATA
     
     res = cleandf(df)
-
+    
+    print("show must go on")
+    
     # show a quick overview of the results file so the user can check
     colDisplay <- c("Name", "Gene", "GeneSize", "NbSpecies", "BUSTED", "BppM1M2", "BppM7M8", "codemlM1M2", "codemlM7M8")
+    
+    print("coldisplay")
+    
     dfDisplay <- res[ , colDisplay]
+    
+    print("renderdata")
+    
     output$inData <- renderDataTable({
       dfDisplay
       })
@@ -74,13 +82,13 @@ server <- function(input, output) {
     resOrd = orderdf(res)
 
     ################################### FIGURE 1 - RANKING
-
+    print("output fig1")
     output$fig1 <- renderPlot({
       makeFig1(resOrd)
       })
 
     ################################### FIGURE 2 - PROFILES
-
+    print("output fig2")
     output$fig2 <- renderPlot({
       makeFig2(resOrd, input$nbGene, cov)
     })
