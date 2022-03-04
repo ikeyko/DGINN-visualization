@@ -22,7 +22,7 @@ server <- function(input, output) {
   
   # get data when user submits
   observeEvent(input$submit,{
-    
+    print("covfile try")
     covFile <- input$covFile
     if(!is.null(input$covFile)) {
       cov  <- read.table(covFile$datapath, header = F, fill = T, sep = "\t")
@@ -33,7 +33,7 @@ server <- function(input, output) {
     
     resFile <- input$resFile 
     df  <- read.table(resFile$datapath, header = T, sep = "\t")
-    
+    print("resfile readed")
     # stop app if no results file uploaded
     if(is.null(resFile)) {
       showModal(
