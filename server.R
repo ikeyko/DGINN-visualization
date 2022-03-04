@@ -33,7 +33,7 @@ server <- function(input, output) {
     
     resFile <- input$resFile 
     df  <- read.table(resFile$datapath, header = T, sep = "\t")
-    
+    print(df)
     print("input file loaded")
     # stop app if no results file uploaded
     if(is.null(resFile)) {
