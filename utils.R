@@ -4,11 +4,15 @@ cleandf <- function(df){
   df[df==""] <- NA
   print("check methods")
   levels(df$BUSTED)[levels(df$BUSTED)=="na"] <- "N"
+  print("check BUSTED")
   levels(df$BppM1M2)[levels(df$BppM1M2)=="na"] <- "N"
+  print("check BppM1M2")
   levels(df$BppM7M8)[levels(df$BppM7M8)=="na"] <- "N"
+  print("check BppM7M8")
   levels(df$codemlM1M2)[levels(df$codemlM1M2)=="na"] <- "N"
+  print("check odemlM1M2")
   levels(df$codemlM7M8)[levels(df$codemlM7M8)=="na"] <- "N"
-  
+  print("check odemlM7M8")
   # df$BUSTED[df$BUSTED=="na"] <- "N"
   # df$BppM1M2[df$BppM1M2=="na"] <- "N"
   # df$BppM7M8[df$BppM7M8=="na"] <- "N"
