@@ -34,8 +34,10 @@ server <- function(input, output) {
     resFile <- input$resFile 
     df  <- read.table(resFile$datapath, header = T, sep = "\t")
     
+    print("input file loaded")
     # stop app if no results file uploaded
     if(is.null(resFile)) {
+      print("res is null")
       showModal(
         modalDialog(
           title = "No data uploaded",
@@ -60,6 +62,7 @@ server <- function(input, output) {
     # }
     
     ################################### VISUALIZE DATA
+    print("start visualize")
     
     res = cleandf(df)
     
