@@ -18,7 +18,7 @@ ui <- fluidPage(
   titlePanel("Visualization of DGINN results"),
   theme = shinytheme("darkly"),
   useShinyjs(),
-  extendShinyjs(text = jsResetCode),
+  extendShinyjs(text = jsResetCode, functions = c("reset")),
   
   sidebarLayout(
     
