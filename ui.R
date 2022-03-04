@@ -11,14 +11,14 @@ source("fig2.R")
 source("utils.R")
 
 # include JS code into app for reset function
-jsResetCode <- "shinyjs.reset = function() {history.go(0)}"
+jsResetCode <- "shinyjs.resetCode = function() {history.go(0);}"
 
 ui <- fluidPage(
   
   titlePanel("Visualization of DGINN results"),
   theme = shinytheme("darkly"),
   useShinyjs(),
-  extendShinyjs(text = jsResetCode, functions = c("reset")),
+  extendShinyjs(text = jsResetCode, functions = c("resetCode")),
   
   sidebarLayout(
     
